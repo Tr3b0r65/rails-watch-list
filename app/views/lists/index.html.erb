@@ -1,25 +1,23 @@
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
-    <h1>Save any kind of movies</h1>
-    <h3 class="typed-js" data-controller="typed-js"></h3>
-  </div>
-</div>
+
+    <h1>Make a list and save your movies!</h1>
 
 <div class="container py-5">
   <div class="d-flex align-items-center justify-content-between mb-3">
     <h3 class="mb-0">My Lists</h3>
     <%= link_to "Create a movie list", new_list_path, class: "btn btn-flat" %>
   </div>
+</div>
 
-  <div class="row">
+<%# Class row places the lists into a rows "bootstrap" %>
+<div class="row">
     <% @lists.each do |list| %>
+<%# responsive columns for different screen sizes "bootstrap" %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to list_path(list), class:"text-decoration-none" do %>
-          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
+<%# image url and attributes for each of the movie cards created (card-category.scss component) %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
             <%= list.name %>
           </div>
         <% end %>
       </div>
     <% end %>
-  </div>
-</div>
